@@ -1,14 +1,42 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
+import L from 'leaflet'; // Importa o Leaflet para usar os ícones
 import 'leaflet/dist/leaflet.css';
 
 const LandingPage = () => {
+  const [position, setPosition] = useState(null); // Estado para armazenar a posição do marcador
+
+  // Função para salvar a localização ao clicar no mapa
+  const LocationMap = () => {
+    useMapEvents({
+      click(e) {
+        const { lat, lng } = e.latlng;
+        setPosition([lat, lng]); // Atualiza o estado com as coordenadas clicadas
+      },
+    });
+
+    // Define um ícone customizado para o marcador
+    const markerIcon = new L.Icon({
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Map_marker_icon_%28SVG%29.svg/1024px-Map_marker_icon_%28SVG%29.svg.png", // URL para o ícone de marcador
+      iconSize: [32, 32], // Tamanho do ícone
+      iconAnchor: [16, 32], // Posição do âncora
+      popupAnchor: [0, -32], // Posição do pop-up
+    });
+
+    return position === null ? null : (
+      <Marker position={position} icon={markerIcon}>
+        <Popup>
+          Localização salva: {position[0].toFixed(4)}, {position[1].toFixed(4)}
+        </Popup>
+      </Marker>
+    );
+  };
+
   const handleButtonClick = () => {
     // Substitua pelo link do Google Forms quando disponível
     window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfMEJYH-xHLvm7NJu4eblkB7i5F_mvpcW_eWjmR_uNRmLd92w/viewform?usp=sf_link';
   };
 
-  
   return (
     <div>
       {/* Header */}
@@ -93,7 +121,7 @@ const LandingPage = () => {
         <button onClick={handleButtonClick} style={styles.formButton}>Ir para o Google Forms</button>
       </section>
 
-      {/* Mapa com localização fixa em Maricá */}
+      {/* Mapa com localização fixa em Maricá e funcionalidade de salvar localização */}
       <section id="mapa" style={styles.mapSection}>
         <h2 style={styles.mapTitle}>Encontre Quadras Próximas</h2>
         <MapContainer center={[-22.9833, -42.8667]} zoom={13} style={styles.map}>
@@ -101,9 +129,7 @@ const LandingPage = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          <Marker position={[-22.9833, -42.8667]}>
-            <Popup>Quadra em Maricá</Popup>
-          </Marker>
+          <LocationMap />
         </MapContainer>
       </section>
 
@@ -164,33 +190,32 @@ const styles = {
     fontSize: '18px',
     textAlign: 'center',
     transition: 'background-color 0.3s',
-    fontWeight: '600',
   },
   heroSection: {
+    padding: '60px 20px',
     textAlign: 'center',
-    padding: '80px 20px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    borderBottom: '5px solid #fff',
+    backgroundColor: '#A8E6A3',
+    borderRadius: '10px',
   },
   heroTitle: {
     fontSize: '40px',
     fontWeight: 'bold',
-    marginBottom: '20px',
   },
   heroText: {
-    fontSize: '20px',
-    marginBottom: '40px',
+    fontSize: '18px',
+    marginTop: '20px',
   },
   ctaButton: {
-    backgroundColor: '#333',
-    color: 'white',
+    display: 'inline-block',
+    marginTop: '30px',
     padding: '15px 30px',
+    backgroundColor: '#4CAF50',
+    color: '#fff',
     fontSize: '18px',
     textDecoration: 'none',
     borderRadius: '5px',
+    cursor: 'pointer',
     transition: 'background-color 0.3s',
-    fontWeight: '600',
   },
   section: {
     padding: '60px 20px',
@@ -213,11 +238,10 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-around',
     marginTop: '40px',
-    backgroundColor: '#A8E6A3', // Verde claro
-    borderRadius: '20px', // Bordas arredondadas
+    backgroundColor: '#A8E6A3',
+    borderRadius: '20px',
     padding: '20px',
   },
-  
   modalidadeItem: {
     textAlign: 'center',
     width: '30%',
@@ -253,25 +277,21 @@ const styles = {
     margin: '0',
     fontSize: '16px',
   },
-
   mapSection: {
     padding: '60px 10px', 
     textAlign: 'center',
     borderRadius: '50px', 
     backgroundColor: '#A8E6A3'
   },
-  
   mapTitle: {
     fontSize: '36px',
     fontWeight: 'bold',
     marginBottom: '20px',
   },
-
   map: {
     height: '500px',
     borderRadius: '15px',
   },
-
   formButton: {
     backgroundColor: '#4CAF50',
     color: 'white',
