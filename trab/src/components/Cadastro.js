@@ -11,11 +11,11 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Simulando um cadastro bem-sucedido
+    
     alert("Cadastro realizado com sucesso!");
     
-    // Redirecionar para a tela de login após o cadastro
-    navigate("/login"); // Caminho da página de login
+    
+    navigate("/login"); 
   };
 
   const styles = `
