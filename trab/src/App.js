@@ -15,8 +15,13 @@ const LandingPage = () => {
       },
     });
 
-    // Usa o ícone padrão do Leaflet
-    const markerIcon = new L.Icon.Default();
+    // Ícone genérico personalizado
+    const markerIcon = new L.Icon({
+      iconUrl: "https://cdn-icons-png.flaticon.com/512/924/924874.png", // URL para ícone genérico
+      iconSize: [30, 30], // Tamanho do ícone
+      iconAnchor: [15, 30], // Ancoragem do ícone (onde o ponto do marcador será)
+      popupAnchor: [0, -30], // Ajuste do popup
+    });
 
     return (
       <>
@@ -29,6 +34,11 @@ const LandingPage = () => {
         ))}
       </>
     );
+  };
+
+  // Função para limpar os marcadores
+  const clearMarkers = () => {
+    setPositions([]); // Limpa o estado de posições
   };
 
   const handleButtonClick = () => {
@@ -143,6 +153,7 @@ const LandingPage = () => {
           />
           <LocationMap />
         </MapContainer>
+        <button onClick={clearMarkers} style={styles.clearButton}>Limpar Marcadores</button> {/* Botão para limpar */}
       </section>
 
       {/* Footer */}
@@ -177,17 +188,16 @@ const styles = {
   },
   headerText: {
     maxWidth: "600px",
-    textAlign: "left",
+    textAlign: "center",
   },
   headerTitle: {
-    fontSize: "48px",
+    fontSize: "36px",
     fontWeight: "bold",
-    marginBottom: "10px",
+    margin: "0",
   },
   headerSubtitle: {
-    fontSize: "20px",
-    marginBottom: "20px",
-    fontStyle: "italic",
+    fontSize: "18px",
+    marginTop: "10px",
   },
   navbar: {
     display: "flex",
@@ -302,6 +312,16 @@ const styles = {
   map: {
     height: "500px",
     borderRadius: "15px",
+  },
+  clearButton: {
+    backgroundColor: "#FF5733",
+    color: "white",
+    padding: "10px 20px",
+    fontSize: "16px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    marginTop: "20px",
   },
   formButton: {
     backgroundColor: "#4CAF50",
