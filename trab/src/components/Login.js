@@ -11,6 +11,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     if (email && password) {
       onLogin(); // Chama a função onLogin para indicar que o login foi bem-sucedido
+      navigate("/"); // Redireciona para a LandingPage
     }
   };
 
@@ -22,6 +23,7 @@ const Login = ({ onLogin }) => {
     // Simula o login via redes sociais
     alert(`Login com ${platform} bem-sucedido!`);
     onLogin(); // Chama a função onLogin para indicar que o login foi bem-sucedido
+    navigate("/"); // Redireciona para a LandingPage após o login social
   };
 
   const styles = `
@@ -150,6 +152,24 @@ const Login = ({ onLogin }) => {
   .social-icon {
     margin-right: 0.5rem;
   }
+  .info-section {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #555;
+  }
+  .info-section p {
+    margin-bottom: 1rem;
+  }
+  .info-section a {
+    color: #4CAF50;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .info-section a:hover {
+    color: #388E3C;
+  }
   `;
 
   return (
@@ -163,7 +183,7 @@ const Login = ({ onLogin }) => {
             className="logo"
           />
           <h1 className="login-title">Bem-vindo ao EsporteFY</h1>
-          <p className="login-subtitle">Faça Login</p>
+          <p className="login-subtitle">Faça Login para acessar seu painel de controle e mais recursos exclusivos.</p>
           <form className="login-form" onSubmit={handleSubmit}>
             <input
               type="email"
@@ -214,6 +234,11 @@ const Login = ({ onLogin }) => {
               Google
             </button>
           </div>
+        </div>
+        <div className="info-section">
+          <p>O EsporteFY é sua plataforma para marcar quadras e criar campeonatos!</p>
+          <p>Explore nossos recursos e aproveite a experiência completa.</p>
+          <a href="#features">Crie sua conta e junte-se a nós nesta experiência única</a>
         </div>
         <footer className="footer">
           <p>
