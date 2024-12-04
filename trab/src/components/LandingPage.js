@@ -84,7 +84,7 @@ const LandingPage = () => {
       {/* Header */}
       <Header>
         <HeaderContent>
-          <Logo src="logo.jpg" alt="Logo Esporte é Vida" />
+          <Logo src="logo.png" alt="Logo Esporte é Vida" />
           <HeaderText>
             <HeaderTitle>EsporteFY</HeaderTitle>
             <HeaderSubtitle>Viva a integração, superação e a paixão pelos esportes!</HeaderSubtitle>

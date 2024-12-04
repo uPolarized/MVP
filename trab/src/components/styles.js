@@ -8,6 +8,10 @@ export const Header = styled.header`
   padding: 40px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.60);
   border-bottom: 4px solid #333;
+
+  @media (max-width: 768px) {
+    padding: 30px 15px;
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -18,18 +22,31 @@ export const HeaderContent = styled.div`
   flex-direction: row;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const Logo = styled.img`
   width: 150px;
   height: auto;
   border-radius: 10px;
+
+  @media (max-width: 768px) {
+    width: 120px;
+  }
 `;
 
 export const HeaderText = styled.div`
   max-width: 600px;
   text-align: center;
   color: #fff;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const HeaderTitle = styled.h1`
@@ -39,6 +56,10 @@ export const HeaderTitle = styled.h1`
   margin: 0;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 export const HeaderSubtitle = styled.h2`
@@ -47,6 +68,10 @@ export const HeaderSubtitle = styled.h2`
   margin-top: 10px;
   letter-spacing: 1px;
   color: #e0e0e0;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 // Navbar
@@ -58,6 +83,12 @@ export const Navbar = styled.nav`
   padding: 15px 30px;
   border-bottom: 4px solid #18BC9C;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 15px;
+  }
 `;
 
 export const NavbarLogo = styled.div`
@@ -65,6 +96,10 @@ export const NavbarLogo = styled.div`
   font-weight: bold;
   color: #18BC9C;
   text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const NavbarLinks = styled.div`
@@ -72,6 +107,11 @@ export const NavbarLinks = styled.div`
   gap: 30px;
   font-size: 18px;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 `;
 
 export const NavbarLink = styled.a`
@@ -93,6 +133,10 @@ export const HeroSection = styled.section`
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 20px auto;
   max-width: 1200px;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
 `;
 
 export const HeroTitle = styled.h2`
@@ -102,6 +146,10 @@ export const HeroTitle = styled.h2`
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 export const HeroText = styled.p`
@@ -113,6 +161,10 @@ export const HeroText = styled.p`
   margin: 0 auto;
   text-align: center;
   padding: 0 15px;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 // Call to Action Button
@@ -124,25 +176,27 @@ export const CtaButton = styled.a`
   color: #fff;
   font-size: 18px;
   text-decoration: none;
-  border-radius: 50px; /* Tornando os cantos mais arredondados */
+  border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra para o botão */
-  
-  /* Efeito de escurecimento ao passar o mouse */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
   &:hover {
-    background-color: #45a049; /* Cor mais escura ao passar o mouse */
-    transform: translateY(-3px); /* Levanta o botão um pouco para dar efeito de clique */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra no hover */
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
 
-  /* Efeito de clique */
   &:active {
-    transform: translateY(1px); /* Desce o botão levemente ao clicar */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Diminui a sombra ao clicar */
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 25px;
+    font-size: 16px;
   }
 `;
-
 
 // Section
 export const Section = styled.section`
@@ -150,6 +204,10 @@ export const Section = styled.section`
   text-align: center;
   background-color: #f9f9f9;
   color: #333;
+
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -163,6 +221,10 @@ export const SectionTitle = styled.h2`
   border-bottom: 2px solid #4CAF50;
   padding-bottom: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 export const SectionText = styled.p`
@@ -176,6 +238,10 @@ export const SectionText = styled.p`
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 // Modalidades
@@ -186,6 +252,12 @@ export const Modalidades = styled.div`
   background-color: #A8E6A3;
   border-radius: 20px;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
 `;
 
 export const ModalidadeItem = styled.div`
@@ -195,6 +267,10 @@ export const ModalidadeItem = styled.div`
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 export const ModalidadeImage = styled.img`
@@ -215,15 +291,23 @@ export const ModalidadeTitle = styled.h3`
   letter-spacing: 1px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  
+
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 
 export const ModalidadeText = styled.p`
   font-size: 16px;
   color: #555;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 // Aviso
@@ -240,6 +324,10 @@ export const AvisoTexto = styled.p`
   line-height: 1.6;
   letter-spacing: 0.5px;
   font-style: italic;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 // Footer
@@ -248,12 +336,20 @@ export const Footer = styled.footer`
   color: white;
   padding: 10px 0;
   text-align: center;
-  margin-top: 20px; /* Adiciona um pequeno espaçamento superior para dar mais espaço */
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    padding: 15px 0;
+  }
 `;
 
 export const FooterText = styled.p`
   margin: 0;
   font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 // Map Section
@@ -265,7 +361,11 @@ export const MapSection = styled.section`
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   max-width: 1200px;
   margin: auto;
-  margin-bottom: 40px; /* Adiciona um espaçamento inferior para separar da footer */
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+  }
 `
 
 export const MapTitle = styled.h2`
@@ -278,7 +378,10 @@ export const MapTitle = styled.h2`
   border-bottom: 4px solid #0A7C3A;
   padding-bottom: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 export const Map = styled.div`
@@ -287,6 +390,10 @@ export const Map = styled.div`
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `;
 
 // Clear Button
@@ -304,5 +411,10 @@ export const ClearButton = styled.button`
   &:hover {
     background-color: #C0392B;
     transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 `;
