@@ -1,4 +1,33 @@
 import React, { useState } from "react";
+// Importe os componentes estilizados do styles.js
+import {
+  Header,
+  HeaderContent,
+  Logo,
+  HeaderText,
+  HeaderTitle,
+  HeaderSubtitle,
+  Navbar,
+  NavbarLink,
+  HeroSection,
+  HeroTitle,
+  HeroText,
+  CtaButton,
+  Section,
+  SectionTitle,
+  SectionText,
+  Modalidades,
+  ModalidadeItem,
+  ModalidadeImage,
+  ModalidadeTitle,
+  ModalidadeText,
+  AvisoTexto,
+  Footer,
+  MapSection,
+  MapTitle,
+  ClearButton
+} from './styles'; // Ajuste o caminho conforme necessário
+
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet"; // Importa o Leaflet
 import "leaflet/dist/leaflet.css";
@@ -15,14 +44,15 @@ const LandingPage = () => {
       },
     });
 
-
     // Ícone genérico personalizado
     const markerIcon = new L.Icon({
-      iconUrl: "https://cdn-icons-png.flaticon.com/512/924/924874.png", // URL para ícone genérico
-      iconSize: [30, 30], // Tamanho do ícone
-      iconAnchor: [15, 30], // Ancoragem do ícone (onde o ponto do marcador será)
-      popupAnchor: [0, -30], // Ajuste do popup
+      iconUrl: "https://unpkg.com/leaflet/dist/images/marker-icon.png", // URL do ícone padrão
+      iconSize: [25, 41], // Tamanho do ícone
+      iconAnchor: [12, 41], // Onde o ponto do marcador se ancorará
+      popupAnchor: [0, -41], // Ajuste do popup
     });
+    
+
 
     return (
       <>
@@ -43,319 +73,112 @@ const LandingPage = () => {
   };
 
   const handleButtonClick = () => {
-    // Substitua pelo link do Google Forms quando disponível
-    window.location.href =
-      "https://docs.google.com/forms/d/e/1FAIpQLSfMEJYH-xHLvm7NJu4eblkB7i5F_mvpcW_eWjmR_uNRmLd92w/viewform?usp=sf_link";
+    window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSfMEJYH-xHLvm7NJu4eblkB7i5F_mvpcW_eWjmR_uNRmLd92w/viewform?usp=sf_link",
+      "_blank"
+    );
   };
 
   return (
     <div>
       {/* Header */}
-      <header style={styles.header}>
-        <div style={styles.headerContent}>
-          <img
-            src="logo.jpg" // Substitua pelo caminho da sua logo
-            alt="Logo Esporte é Vida"
-            style={styles.logo}
-          />
-          <div style={styles.headerText}>
-            <h1 style={styles.headerTitle}>EsporteFY</h1>
-            <p style={styles.headerSubtitle}>Viva a integração, superação e a paixão pelos esportes!</p>
-          </div>
-        </div>
-      </header>
+      <Header>
+        <HeaderContent>
+          <Logo src="logo.jpg" alt="Logo Esporte é Vida" />
+          <HeaderText>
+            <HeaderTitle>EsporteFY</HeaderTitle>
+            <HeaderSubtitle>Viva a integração, superação e a paixão pelos esportes!</HeaderSubtitle>
+          </HeaderText>
+        </HeaderContent>
+      </Header>
 
       {/* Navbar */}
-      <nav style={styles.navbar}>
-        <a href="#home" style={styles.navItem}>Início</a>
-        <a href="#sobre" style={styles.navItem}>Sobre</a>
-        <a href="#modalidades" style={styles.navItem}>Modalidades</a>
-        <a href="#revitalizacao" style={styles.navItem}>Revitalização</a>
-        <a href="#contato" style={styles.navItem}>Contato</a>
-        <a href="#mapa" style={styles.navItem}>Encontre quadras próximas</a>
-      </nav>
+      <Navbar>
+        <NavbarLink href="#home">Início</NavbarLink>
+        <NavbarLink href="#sobre">Sobre</NavbarLink>
+        <NavbarLink href="#modalidades">Modalidades</NavbarLink>
+        <NavbarLink href="#revitalizacao">Revitalização</NavbarLink>
+        <NavbarLink href="#contato">Contato</NavbarLink>
+        <NavbarLink href="#mapa">Encontre quadras próximas</NavbarLink>
+      </Navbar>
 
       {/* Seções */}
-      <section id="home" style={styles.heroSection}>
-        <h2 style={styles.heroTitle}>Transforme sua Vida com Esporte!</h2>
-        <p style={styles.heroText}>Descubra como o esporte pode melhorar sua saúde, bem-estar e estilo de vida.</p>
-        <a href="#modalidades" style={styles.ctaButton}>Saiba Mais</a>
-      </section>
+      <HeroSection id="home">
+        <HeroTitle>Transforme sua Vida com Esporte!</HeroTitle>
+        <HeroText>Descubra como o esporte pode melhorar sua saúde, bem-estar e estilo de vida.</HeroText>
+        <CtaButton href="#modalidades">Saiba Mais</CtaButton>
+      </HeroSection>
 
-      <section id="sobre" style={styles.section}>
-        <h2 style={styles.sectionTitle}>Sobre o Esporte</h2>
-        <p style={styles.sectionText}>
-          O esporte é uma atividade física estruturada que envolve exercícios, competições e recreação, com o objetivo
-          de promover saúde, bem-estar e integração social. Ele traz benefícios físicos como o fortalecimento do sistema
-          cardiovascular, aumento da flexibilidade, controle do peso e prevenção de doenças crônicas. Além disso, ajuda
-          na melhora da saúde mental, aliviando o estresse e promovendo uma sensação de felicidade através da liberação
-          de endorfinas.
-        </p>
-      </section>
+      <Section id="sobre">
+        <SectionTitle>Sobre o EsporteFY</SectionTitle>
+        <SectionText>
+          O projeto EsporteFY tem como objetivo promover a integração e o bem-estar social por meio do esporte,
+          unindo pessoas de todas as idades nas quadras revitalizadas de Maricá. A iniciativa visa gerir campeonatos amadores,
+          organizar horários de jogos e facilitar o agendamento de atividades esportivas, criando um ambiente acessível e acolhedor
+          para a prática de esportes. Além de incentivar a saúde física e mental, o projeto busca fortalecer a comunidade local,
+          estimulando a participação de todos e promovendo a convivência entre os moradores através do esporte.
+        </SectionText>
+      </Section>
 
-      <section id="modalidades" style={styles.section}>
-        <h2 style={styles.sectionTitle}>Modalidades</h2>
-        <div style={styles.modalidades}>
-          <div style={styles.modalidadeItem}>
-            <img
-              src="/fute.jpeg" // Substitua com o caminho correto para a imagem de futebol
-              alt="Futebol"
-              style={styles.modalidadeImage}
-            />
-            <h3 style={styles.modalidadeTitle}>Futebol</h3>
-            <p style={styles.modalidadeText}>A emoção do futebol une milhões de pessoas no mundo todo. Participe e sinta a paixão!</p>
-          </div>
-          <div style={styles.modalidadeItem}>
-            <img
-              src="volei.jpeg" // Substitua com o caminho correto para a imagem de vôlei
-              alt="Vôlei"
-              style={styles.modalidadeImage}
-            />
-            <h3 style={styles.modalidadeTitle}>Vôlei</h3>
-            <p style={styles.modalidadeText}>Ideal para quem adora trabalhar em equipe. O vôlei traz diversão e muito movimento!</p>
-          </div>
-          <div style={styles.modalidadeItem}>
-            <img
-              src="basquete.jpg" // Substitua com o caminho correto para a imagem de basquete
-              alt="Basquete"
-              style={styles.modalidadeImage}
-            />
-            <h3 style={styles.modalidadeTitle}>Basquete</h3>
-            <p style={styles.modalidadeText}>Simples, acessível e energizante. O basquete é perfeito para quem busca saúde e disposição!</p>
-          </div>
-        </div>
-      </section>
+      <Section id="modalidades">
+        <SectionTitle>Modalidades</SectionTitle>
+        <Modalidades>
+          <ModalidadeItem>
+            <ModalidadeImage src="/fute.jpeg" alt="Futebol" />
+            <ModalidadeTitle>Futebol</ModalidadeTitle>
+            <ModalidadeText>A emoção do futebol une milhões de pessoas no mundo todo. Participe e sinta a paixão!</ModalidadeText>
+          </ModalidadeItem>
+          <ModalidadeItem>
+            <ModalidadeImage src="volei.jpeg" alt="Vôlei" />
+            <ModalidadeTitle>Vôlei</ModalidadeTitle>
+            <ModalidadeText>Ideal para quem adora trabalhar em equipe. O vôlei traz diversão e muito movimento!</ModalidadeText>
+          </ModalidadeItem>
+          <ModalidadeItem>
+            <ModalidadeImage src="basquete.jpg" alt="Basquete" />
+            <ModalidadeTitle>Basquete</ModalidadeTitle>
+            <ModalidadeText>Simples, acessível e energizante. O basquete é perfeito para quem busca saúde e disposição!</ModalidadeText>
+          </ModalidadeItem>
+        </Modalidades>
+        <AvisoTexto>*Estes são apenas alguns dos esportes disponíveis. Existem outras modalidades para você praticar e se divertir!*.</AvisoTexto>
+      </Section>
 
-      <section id="revitalizacao" style={styles.section}>
-  <h2 style={styles.sectionTitle}>Revitalização de Quadras em Maricá</h2>
-  <p style={styles.sectionText}>
-    Maricá está investindo na revitalização de suas quadras esportivas para proporcionar aos moradores
-    espaços mais seguros e modernos para a prática de esportes. O projeto inclui melhorias nas estruturas
-    das quadras, novos equipamentos e mais opções para os atletas e amantes do esporte. Acompanhe as novidades
-    e aproveite as novas oportunidades para a prática esportiva!
-  </p>
-</section>
+      <Section id="revitalizacao">
+        <SectionTitle>Revitalização de Quadras em Maricá</SectionTitle>
+        <SectionText>
+          Maricá está investindo na revitalização de suas quadras esportivas para proporcionar aos moradores
+          espaços mais seguros e modernos para a prática de esportes. O projeto inclui melhorias nas estruturas
+          das quadras, novos equipamentos e mais opções para os atletas e amantes do esporte. Acompanhe as novidades
+          e aproveite as novas oportunidades para a prática esportiva!
+        </SectionText>
+      </Section>
 
-
-      <section id="contato" style={styles.section}>
-        <h2 style={styles.sectionTitle}>Entre em Contato</h2>
-        <p style={styles.sectionText}>Tem alguma dúvida ou quer participar dos nossos eventos? Entre em contato conosco!</p>
+      <Section id="contato">
+        <SectionTitle>Entre em Contato</SectionTitle>
+        <SectionText>Tem alguma dúvida ou quer participar dos nossos eventos? Entre em contato conosco!</SectionText>
         {/* Botão para o Google Forms */}
-        <button onClick={handleButtonClick} style={styles.formButton}>Ir para o Google Forms</button>
-      </section>
+        <CtaButton onClick={handleButtonClick}>Clique aqui</CtaButton>
+
+      </Section>
 
       {/* Mapa com múltiplas localizações salvas */}
-      <section id="mapa" style={styles.mapSection}>
-        <h2 style={styles.mapTitle}>Encontre Quadras Próximas</h2>
-        <MapContainer center={[-22.9833, -42.8667]} zoom={13} style={styles.map}>
+      <MapSection id="mapa">
+        <MapTitle>Encontre Quadras Próximas</MapTitle>
+        <MapContainer center={[-22.9833, -42.8667]} zoom={13} style={{ height: "400px", width: "100%" }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           <LocationMap />
         </MapContainer>
-        <button onClick={clearMarkers} style={styles.clearButton}>Limpar Marcadores</button> {/* Botão para limpar */}
-      </section>
+        <ClearButton onClick={clearMarkers}>Limpar Marcadores</ClearButton>
+      </MapSection>
 
       {/* Footer */}
-      <footer style={styles.footer}>
-        <p style={styles.footerText}>&copy; 2024 Esporte Para Todos. Todos os direitos reservados.</p>
-      </footer>
+      <Footer>
+        <p>&copy;EsporteFY,Todos os direitos reservados.</p>
+      </Footer>
     </div>
   );
-};
-
-// Estilos em JS (CSS-in-JS)
-const styles = {
-  header: {
-    backgroundColor: "#4CAF50",  // Tom de verde mais vibrante
-    color: "white",
-    textAlign: "center",
-    padding: "40px 20px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.60)",  // Sombra sutil para dar profundidade
-    borderBottom: "4px solid #333",  // Linha sutil no fundo do header
-  },
-  headerContent: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "30px",  // Aumentando o espaçamento entre o logo e o texto
-    flexDirection: "row",  // Garantir que a linha se mantenha em ordem
-    maxWidth: "1200px",  // Limita o tamanho para deixar mais elegante
-    margin: "0 auto",  // Centralizando o conteúdo
-  },
-  logo: {
-    width: "150px",
-    height: "auto",
-    borderRadius: "10px",
-  },
-  headerText: {
-    maxWidth: "600px",
-    textAlign: "center",
-    color: "#fff",  // Assegura que o texto fique visível
-  },
-  headerTitle: {
-    fontSize: "36px",
-    fontWeight: "700",  // Deixa o título mais forte
-    letterSpacing: "2px",  // Aumenta o espaçamento entre letras para dar sofisticação
-    margin: "0",  // Remove margens desnecessárias
-    textTransform: "uppercase",  // Deixa o texto em maiúsculas para um visual mais impactante
-    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",  // Sombra suave no título
-  },
-  headerSubtitle: {
-    fontSize: "18px",
-    fontWeight: "300",  // Tira a rigidez e coloca um peso mais leve
-    marginTop: "10px",
-    letterSpacing: "1px",  // Sutilmente aumenta o espaçamento das letras
-    color: "#e0e0e0",  // Subtítulo em uma cor mais clara
-  },
-  navbar: {
-    display: "flex",
-    justifyContent: "center",
-    backgroundColor: "#333",
-    padding: "12px 0",
-  },
-  navItem: {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "18px",
-    padding: "0 15px",
-    cursor: "pointer",
-  },
-  heroSection: {
-    padding: "60px 20px",
-    textAlign: "center",
-    backgroundColor: "#A8E6A3",
-    borderRadius: "10px",
-  },
-  heroTitle: {
-    fontSize: "40px",
-    fontWeight: "bold",
-  },
-  heroText: {
-    fontSize: "18px",
-    marginTop: "20px",
-  },
-  ctaButton: {
-    display: "inline-block",
-    marginTop: "30px",
-    padding: "15px 30px",
-    backgroundColor: "#4CAF50",
-    color: "#fff",
-    fontSize: "18px",
-    textDecoration: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s",
-  },
-  section: {
-    padding: "60px 20px",
-    textAlign: "center",
-    backgroundColor: "#f9f9f9",  // Alterado apenas na seção específica
-    color: "#333",                // Cor do texto
-  },
-  sectionTitle: {
-    fontSize: "36px",
-    fontWeight: "bold",
-    marginBottom: "20px",
-  },
-  sectionText: {
-    fontSize: "18px",
-    lineHeight: "1.6",
-    maxWidth: "800px",
-    margin: "0 auto",
-  },
-  modalidades: {
-    display: "flex",
-    justifyContent: "space-around",
-    marginTop: "40px",
-    backgroundColor: "#A8E6A3",
-    borderRadius: "20px",
-    padding: "20px",
-  },
-  modalidadeItem: {
-    textAlign: "center",
-    width: "30%",
-    backgroundColor: "#fff",
-    borderRadius: "15px",
-    padding: "20px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-  },
-  modalidadeImage: {
-    width: "100%",
-    height: "200px",
-    objectFit: "cover",
-    borderRadius: "15px",
-    marginBottom: "15px",
-    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-  },
-  modalidadeTitle: {
-    fontSize: "24px",  // Aumentei um pouco o tamanho da fonte para mais destaque
-    fontWeight: "700",  // Deixei o peso da fonte mais forte para maior impacto
-    marginBottom: "12px",  // Aumentei a margem para dar mais espaço abaixo do título
-    color: "#34495E",  // Uma cor de texto mais sofisticada e moderna
-    textTransform: "uppercase",  // Deixei o texto em maiúsculas para dar um ar mais elegante
-    letterSpacing: "1px",  // Espaçamento entre as letras para um toque mais limpo
-    textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",  // Sombra suave para dar profundidade
-    transition: "transform 0.3s ease",  // Adiciona uma animação suave para transformações
-  },
-  
-  modalidadeText: {
-    fontSize: "16px",
-    color: "#555",
-  },
-  footer: {
-    backgroundColor: "#333",
-    color: "white",
-    padding: "20px 0",
-    textAlign: "center",
-  },
-  footerText: {
-    margin: "0",
-    fontSize: "16px",
-  },
-  mapSection: {
-    padding: "60px 10px",
-    textAlign: "center",
-    borderRadius: "50px",
-    backgroundColor: "#A8E6A3",
-  },
-  mapTitle: {
-    fontSize: "36px",
-    fontWeight: "bold",
-    marginBottom: "20px",
-    color: "#2C3E50", // Cor mais suave e sofisticada
-    textTransform: "uppercase", // Torna o texto maiúsculo
-    letterSpacing: "1px", // Espaçamento entre as letras
-    borderBottom: "4px solid #0A7C3A", // Linha de destaque abaixo do título
-    paddingBottom: "10px", // Um pequeno espaçamento para destacar a linha
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)", // Sombra sutil para profundidade
-  },
-  
-  map: {
-    height: "500px",
-    borderRadius: "15px",
-  },
-  clearButton: {
-    backgroundColor: "#FF5733",
-    color: "white",
-    padding: "10px 20px",
-    fontSize: "16px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    marginTop: "20px",
-  },
-  formButton: {
-    backgroundColor: "#4CAF50",
-    color: "white",
-    padding: "15px 30px",
-    fontSize: "18px",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s",
-  },
 };
 
 export default LandingPage;
