@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// Header
+
 export const Header = styled.header`
   background-color: #4CAF50;
   color: white;
@@ -74,7 +74,7 @@ export const HeaderSubtitle = styled.h2`
   }
 `;
 
-// Navbar
+
 export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -124,7 +124,7 @@ export const NavbarLink = styled.a`
   }
 `;
 
-// Hero Section
+
 export const HeroSection = styled.section`
   padding: 80px 30px;
   text-align: center;
@@ -167,7 +167,7 @@ export const HeroText = styled.p`
   }
 `;
 
-// Call to Action Button
+
 export const CtaButton = styled.a`
   display: inline-block;
   margin-top: 30px;
@@ -198,7 +198,7 @@ export const CtaButton = styled.a`
   }
 `;
 
-// Section
+
 export const Section = styled.section`
   padding: 60px 20px;
   text-align: center;
@@ -244,7 +244,7 @@ export const SectionText = styled.p`
   }
 `;
 
-// Modalidades
+
 export const Modalidades = styled.div`
   display: flex;
   justify-content: space-around;
@@ -310,7 +310,7 @@ export const ModalidadeText = styled.p`
   }
 `;
 
-// Aviso
+
 export const AvisoTexto = styled.p`
   font-size: 18px;
   color: #2C3E50;
@@ -330,7 +330,7 @@ export const AvisoTexto = styled.p`
   }
 `;
 
-// Footer
+
 export const Footer = styled.footer`
   background-color: #333;
   color: white;
@@ -352,7 +352,7 @@ export const FooterText = styled.p`
   }
 `;
 
-// Map Section
+
 export const MapSection = styled.section`
   padding: 60px 20px;
   text-align: center;

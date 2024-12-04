@@ -3,7 +3,6 @@ import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Estilos com styled-components
 const SignupContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -11,7 +10,7 @@ const SignupContainer = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #a8e6a3 0%, #d4f5d5 100%); /* Mantido o fundo verde claro */
+  background: linear-gradient(135deg, #a8e6a3 0%, #d4f5d5 100%);
 `;
 
 const SignupCard = styled.div`
@@ -40,17 +39,16 @@ const SignupTitle = styled.h1`
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: #388e3c;
-  text-transform: uppercase; /* Deixa o texto em maiúsculas */
-  letter-spacing: 2px; /* Aumenta o espaçamento entre as letras */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra sutil ao texto */
-  transition: all 0.3s ease; /* Adiciona uma transição suave */
-  
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
   &:hover {
-    color: #81c784; /* Muda a cor para um tom mais claro quando o título for focado */
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4); /* Sombra mais forte ao passar o mouse */
+    color: #81c784;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
   }
 `;
-
 
 const SignupForm = styled.form`
   display: flex;
@@ -66,7 +64,7 @@ const SignupInput = styled.input`
   background: #f9f9f9;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  text-align: center; /* Centraliza o texto dentro do input */
+  text-align: center;
 
   &:focus {
     border-color: #4caf50;
@@ -145,17 +143,15 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // Função que simula o processo de cadastro
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Cadastro realizado com sucesso!");
-    navigate("/login"); // Redireciona para a tela de login após o cadastro
+    navigate("/login");
   };
 
-  // Funções para simular o login com redes sociais
   const handleSocialLogin = (platform) => {
     alert(`${platform} Cadastro realizado com sucesso!`);
-    navigate("/login"); // Redireciona para a tela de login após o cadastro
+    navigate("/login");
   };
 
   return (

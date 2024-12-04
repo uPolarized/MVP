@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// Importe os componentes estilizados do styles.js
 import {
   Header,
   HeaderContent,
@@ -26,33 +25,29 @@ import {
   MapSection,
   MapTitle,
   ClearButton
-} from './styles'; // Ajuste o caminho conforme necessário
+} from './styles';
 
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
-import L from "leaflet"; // Importa o Leaflet
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 const LandingPage = () => {
-  const [positions, setPositions] = useState([]); // Estado para armazenar várias posições
+  const [positions, setPositions] = useState([]);
 
-  // Função para salvar a localização ao clicar no mapa
   const LocationMap = () => {
     useMapEvents({
       click(e) {
         const { lat, lng } = e.latlng;
-        setPositions((prevPositions) => [...prevPositions, [lat, lng]]); // Adiciona a nova posição ao estado
+        setPositions((prevPositions) => [...prevPositions, [lat, lng]]);
       },
     });
 
-    // Ícone genérico personalizado
     const markerIcon = new L.Icon({
-      iconUrl: "https://unpkg.com/leaflet/dist/images/marker-icon.png", // URL do ícone padrão
-      iconSize: [25, 41], // Tamanho do ícone
-      iconAnchor: [12, 41], // Onde o ponto do marcador se ancorará
-      popupAnchor: [0, -41], // Ajuste do popup
+      iconUrl: "https://unpkg.com/leaflet/dist/images/marker-icon.png",
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [0, -41],
     });
-    
-
 
     return (
       <>
@@ -67,9 +62,8 @@ const LandingPage = () => {
     );
   };
 
-  // Função para limpar os marcadores
   const clearMarkers = () => {
-    setPositions([]); // Limpa o estado de posições
+    setPositions([]);
   };
 
   const handleButtonClick = () => {
@@ -81,7 +75,6 @@ const LandingPage = () => {
 
   return (
     <div>
-      {/* Header */}
       <Header>
         <HeaderContent>
           <Logo src="logo.png" alt="Logo Esporte é Vida" />
@@ -92,7 +85,6 @@ const LandingPage = () => {
         </HeaderContent>
       </Header>
 
-      {/* Navbar */}
       <Navbar>
         <NavbarLink href="#home">Início</NavbarLink>
         <NavbarLink href="#sobre">Sobre</NavbarLink>
@@ -102,7 +94,6 @@ const LandingPage = () => {
         <NavbarLink href="#mapa">Encontre quadras próximas</NavbarLink>
       </Navbar>
 
-      {/* Seções */}
       <HeroSection id="home">
         <HeroTitle>Transforme sua Vida com Esporte!</HeroTitle>
         <HeroText>Descubra como o esporte pode melhorar sua saúde, bem-estar e estilo de vida.</HeroText>
@@ -155,12 +146,9 @@ const LandingPage = () => {
       <Section id="contato">
         <SectionTitle>Entre em Contato</SectionTitle>
         <SectionText>Tem alguma dúvida ou quer participar dos nossos eventos? Entre em contato conosco!</SectionText>
-        {/* Botão para o Google Forms */}
         <CtaButton onClick={handleButtonClick}>Clique aqui</CtaButton>
-
       </Section>
 
-      {/* Mapa com múltiplas localizações salvas */}
       <MapSection id="mapa">
         <MapTitle>Encontre Quadras Próximas</MapTitle>
         <MapContainer center={[-22.9833, -42.8667]} zoom={13} style={{ height: "400px", width: "100%" }}>
@@ -173,7 +161,6 @@ const LandingPage = () => {
         <ClearButton onClick={clearMarkers}>Limpar Marcadores</ClearButton>
       </MapSection>
 
-      {/* Footer */}
       <Footer>
         <p>&copy;EsporteFY,Todos os direitos reservados.</p>
       </Footer>

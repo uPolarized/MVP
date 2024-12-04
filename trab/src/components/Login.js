@@ -1,30 +1,29 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa"; // Ícones de redes sociais
+import { FaFacebook, FaInstagram, FaGoogle } from "react-icons/fa";
 import styled from "styled-components";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); // Hook do React Router para navegação
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email && password) {
-      onLogin(); // Chama a função onLogin para indicar que o login foi bem-sucedido
-      navigate("/"); // Redireciona para a LandingPage
+      onLogin();
+      navigate("/");
     }
   };
 
   const goToSignUp = () => {
-    navigate("/signup"); // Redireciona para a página de cadastro
+    navigate("/signup");
   };
 
   const handleSocialLogin = (platform) => {
-    // Simula o login via redes sociais
     alert(`Login com ${platform} bem-sucedido!`);
-    onLogin(); // Chama a função onLogin para indicar que o login foi bem-sucedido
-    navigate("/"); // Redireciona para a LandingPage após o login social
+    onLogin();
+    navigate("/");
   };
 
   return (
@@ -89,8 +88,6 @@ const Login = ({ onLogin }) => {
 
 export default Login;
 
-// Styled Components
-
 const LoginContainer = styled.div`
   margin: 0;
   padding: 0;
@@ -115,8 +112,6 @@ const LoginCard = styled.div`
   &:hover {
     transform: translateY(-10px);
   }
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     padding: 1.5rem;
     max-width: 90%;
@@ -126,8 +121,6 @@ const LoginCard = styled.div`
 const Logo = styled.img`
   max-width: 150px;
   margin-bottom: 1rem;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     max-width: 120px;
   }
@@ -138,8 +131,6 @@ const LoginTitle = styled.h1`
   font-weight: bold;
   margin-bottom: 0.5rem;
   color: #333;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     font-size: 1.5rem;
   }
@@ -149,8 +140,6 @@ const LoginSubtitle = styled.p`
   font-size: 1rem;
   color: #666;
   margin-bottom: 1.5rem;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     font-size: 0.9rem;
   }
@@ -161,8 +150,6 @@ const InputGroup = styled.div`
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: center;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     margin-bottom: 1rem;
   }
@@ -178,12 +165,9 @@ const LoginInput = styled.input`
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: background-color 0.3s ease;
-
   &:focus {
     background: #eaeaea;
   }
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     padding: 0.65rem;
   }
@@ -202,13 +186,10 @@ const LoginButton = styled.button`
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 45px;
   margin-top: 1rem;
-  
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     font-size: 1rem;
     height: 40px;
@@ -219,8 +200,6 @@ const LoginFooter = styled.div`
   margin-top: 1rem;
   font-size: 0.9rem;
   color: #666;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     font-size: 0.8rem;
   }
@@ -233,12 +212,9 @@ const LoginLink = styled.a`
   margin-left: 0.25rem;
   cursor: pointer;
   transition: color 0.3s ease;
-
   &:hover {
     color: #388E3C;
   }
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     font-size: 0.9rem;
   }
@@ -249,8 +225,6 @@ const SocialLoginButtons = styled.div`
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     gap: 0.5rem;
   }
@@ -266,13 +240,10 @@ const SocialLoginButton = styled.button`
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-  
   &:hover {
     border-color: #4CAF50;
     box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
   }
-
-  /* Media Query para telas menores */
   @media (max-width: 768px) {
     padding: 0.6rem;
   }
@@ -283,8 +254,6 @@ const InfoSection = styled.div`
   margin-top: 2rem;
   font-size: 1rem;
   color: #555;
-
-  
   @media (max-width: 768px) {
     font-size: 0.9rem;
     margin-top: 1rem;
@@ -296,12 +265,9 @@ const InfoLink = styled.a`
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
-
   &:hover {
     color: #388E3C;
   }
-
-  
   @media (max-width: 768px) {
     font-size: 0.9rem;
   }
@@ -312,8 +278,6 @@ const Footer = styled.footer`
   font-size: 0.85rem;
   color: #666;
   text-align: center;
-
-  
   @media (max-width: 768px) {
     font-size: 0.75rem;
   }
