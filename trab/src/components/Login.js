@@ -165,6 +165,7 @@ const LoginInput = styled.input`
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
   transition: background-color 0.3s ease;
+  text-align: center; /* Adiciona o alinhamento central */
   &:focus {
     background: #eaeaea;
   }
@@ -172,6 +173,7 @@ const LoginInput = styled.input`
     padding: 0.65rem;
   }
 `;
+
 
 const LoginButton = styled.button`
   width: 100%;
