@@ -35,20 +35,39 @@ const Logo = styled.img`
 `;
 
 const SignupTitle = styled.h1`
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: #388e3c;
+  color: #4CAF50; /* Verde claro */
   text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  letter-spacing: 1.5px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
 
-  &:hover {
-    color: #81c784;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  &::after {
+    content: "";
+    width: 60%;
+    height: 4px;
+    background-color: #81c784;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.3rem;
   }
 `;
+
 
 const SignupForm = styled.form`
   display: flex;
@@ -74,21 +93,50 @@ const SignupInput = styled.input`
 `;
 
 const SignupButton = styled.button`
-  background: linear-gradient(135deg, #a8e6a3 0%, #d4f5d5 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #A8E6A3 0%, #D4F5D5 100%);
+  color: #004d00; /* Verde escuro para contraste */
+  font-weight: bold;
   border: none;
-  border-radius: 12px;
-  padding: 1rem;
-  font-size: 1.1rem;
+  border-radius: 30px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   margin-top: 1rem;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease-in-out;
+  }
+
+  &:hover::after {
+    left: 100%;
+  }
 
   &:hover {
     background: linear-gradient(135deg, #81c784 0%, #c8e6c9 100%);
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    padding: 0.9rem 1.2rem;
   }
 `;
+
 
 const SocialLogin = styled.div`
   display: flex;

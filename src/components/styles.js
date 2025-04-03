@@ -395,6 +395,12 @@ export const Map = styled.div`
     height: 300px;
   }
 `;
+export const botaosite=styled.button
+
+
+
+
+
 
 // Clear Button
 export const ClearButton = styled.button`

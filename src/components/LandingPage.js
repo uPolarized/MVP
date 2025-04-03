@@ -111,6 +111,43 @@ const LandingPage = () => {
         </SectionText>
       </Section>
 
+        
+      <section id="links-uteis" style={{ textAlign: "center", padding: "20px" }}>
+  <SectionTitle>recursos adicionais</SectionTitle>
+
+  <a
+    href="http://0.0.0.0:8000/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-block",
+      backgroundColor: "#4CAF50", 
+      color: "white",
+      padding: "15px 35px", 
+      borderRadius: "10px",
+      textDecoration: "none",
+      fontSize: "20px", 
+      fontWeight: "bold",
+      marginTop: "15px",
+      transition: "0.3s ease-in-out",
+      boxShadow: "0px 5px 12px rgba(0, 0, 0, 0.3)", // Sombra mais destacada
+    }}
+    onMouseOver={(e) => (e.target.style.backgroundColor = "#3D8B40")}
+    onMouseOut={(e) => (e.target.style.backgroundColor = "#4CAF50")}
+  >
+     Acessar Site Externo
+  </a>
+</section>
+
+
+
+
+
+
+
+
+
+
       <Section id="modalidades">
         <SectionTitle>Modalidades</SectionTitle>
         <Modalidades>
@@ -148,6 +185,8 @@ const LandingPage = () => {
         <SectionText>Tem alguma dúvida ou quer participar dos nossos eventos? Entre em contato conosco!</SectionText>
         <CtaButton onClick={handleButtonClick}>Clique aqui</CtaButton>
       </Section>
+
+       
 
       <MapSection id="mapa">
         <MapTitle>Encontre Quadras Próximas</MapTitle>

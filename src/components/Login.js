@@ -56,9 +56,10 @@ const Login = ({ onLogin }) => {
           </InputGroup>
         </form>
         <LoginFooter>
-          <p>Não tem uma conta?</p>
-          <LoginLink onClick={goToSignUp}>Criar Conta</LoginLink>
-        </LoginFooter>
+  <p>Não tem uma conta?</p>
+  <LoginLink onClick={goToSignUp}> Criar Conta Agora</LoginLink>
+</LoginFooter>
+
         <SocialLoginButtons>
           <SocialLoginButton onClick={() => handleSocialLogin("Facebook")}>
             <FaFacebook size={20} className="social-icon" />
@@ -75,10 +76,11 @@ const Login = ({ onLogin }) => {
         </SocialLoginButtons>
       </LoginCard>
       <InfoSection>
-        <p>O EsporteFY é sua plataforma para marcar quadras e criar campeonatos!</p>
-        <p>Explore nossos recursos e aproveite a experiência completa.</p>
-        <InfoLink href="#features">Crie sua conta e junte-se a nós nesta experiência única</InfoLink>
-      </InfoSection>
+  <p>O EsporteFY é sua plataforma para marcar quadras e criar campeonatos!</p>
+  <p>Explore nossos recursos e aproveite a experiência completa.</p>
+  <InfoLink href="#features"> Crie sua conta e junte-se a nós!</InfoLink>
+</InfoSection>
+
       <Footer>
         <p>© 2024 EsporteFY. Todos os direitos reservados.</p>
       </Footer>
@@ -207,20 +209,33 @@ const LoginFooter = styled.div`
   }
 `;
 
-const LoginLink = styled.a`
-  color: #4CAF50;
+const LoginLink = styled.button`
+  background-color: #4CAF50;
+  color: white;
   font-weight: bold;
-  text-decoration: none;
-  margin-left: 0.25rem;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: color 0.3s ease;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  margin-top: 8px;
+
   &:hover {
-    color: #388E3C;
+    background-color: #388E3C;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
   }
+
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    padding: 10px 20px;
   }
 `;
+
 
 const SocialLoginButtons = styled.div`
   display: flex;
@@ -266,14 +281,22 @@ const InfoLink = styled.a`
   color: #4CAF50;
   font-weight: bold;
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  
   &:hover {
     color: #388E3C;
+    text-decoration: underline;
+    transform: scale(1.1); // Aumenta ligeiramente no hover para chamar atenção
   }
+
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 `;
+
 
 const Footer = styled.footer`
   margin-top: 1rem;
